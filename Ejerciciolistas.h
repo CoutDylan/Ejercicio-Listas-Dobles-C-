@@ -6,7 +6,7 @@ struct Nodo{ //struct Nodo
 	Nodo *liga; //liga
 	
 };	
-void insertarLista(Nodo*,int);
+void insertarListaA(Nodo*,int);
 void menu(Nodo*punta){
 
 	int opmenu,i,p,pos,x,n;
@@ -29,7 +29,7 @@ void menu(Nodo*punta){
 	    case 1:cout<<"|||INSERTOR DE LISTAS|||"<<endl;	
 		cout<<"\nDigite un dato #"<<i+1<<":" ;
 	    cin>>n; 
-	    insertarLista(punta,n);
+	    insertarListaA(punta,n);
 	    cout<<"*************************"<<endl;
 	    i++;
 	    system("pause");
@@ -61,11 +61,17 @@ struct nodo * punta;
 punta=NULL;
 return punta;
 }
-void insertarLista(Nodo *&punta, int n){//puntero tipo nodo y por referencia
+void insertarListaA(Nodo *&punta, int n){//puntero tipo nodo y por referencia
+int i;
+int nnodos;
+cout<<"Cuantos nodos desea insertar en la lista A ( externa ) :"<<endl;
+cin>>nnodos;
+while(i<=nnodos)
+{
+
 Nodo *nuevo_nodo=new Nodo();
 Nodo *aux1=punta;
 nuevo_nodo->dato=n;
-
 
 if(punta==NULL){
 	punta=nuevo_nodo;
@@ -78,5 +84,6 @@ else{
 	}
 	aux1->liga=nuevo_nodo;
 
+}
 }
 }
