@@ -8,7 +8,7 @@ struct Nodo{ //struct Nodo
 };	
 void menu(Nodo*punta){
 
-	int opmenu,n,buscar,i,ip,pos,b;
+	int opmenu,i,p,pos,x;
 	do{
 	cout<<endl;
 	cout<<"************************MENU**********************"<<endl;
@@ -53,3 +53,9 @@ void menu(Nodo*punta){
 	
   }while(opmenu !=10);
 };
+
+struct nodo * crearpunta(){
+struct nodo * punta;
+punta=NULL;
+return punta;
+}
