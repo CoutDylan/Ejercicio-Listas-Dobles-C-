@@ -57,6 +57,7 @@ struct Nodo * punta;
 punta=NULL;
 return punta;
 }
+
 void insertarListaA(Nodo *&punta, int n){//puntero tipo nodo y por referencia
 int i;
 int nnodos;
@@ -98,3 +99,19 @@ void MostrarListas(Nodo *punta){
 	system("pause");
 	system("cls");
 };
+
+void insertarListaB(Nodo *&punta, int p, int x){
+	cout<<"Digite el nodo de la lista A en el que desea insertar la lista B (lista interna):"<<endl;
+	cin>>p;
+	Nodo *x=punta;
+	x=punta;
+	while(x->liga!=p){
+		x=x->liga;
+}
+struct Nodo * crearpunta2(){
+struct Nodo * punta2;
+punta=NULL;
+return punta2;
+}
+}
+
