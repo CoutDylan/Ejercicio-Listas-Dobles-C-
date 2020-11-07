@@ -6,38 +6,34 @@ struct Nodo{ //struct Nodo
 	Nodo *liga; //liga
 	
 };	
-void insertarListaA(Nodo*,int);
+void insertarListaA(Nodo*&,int);
+void MostrarListas(Nodo *);
 void menu(Nodo*punta){
 
 	int opmenu,i,p,pos,x,n;
 	do{
 	cout<<endl;
 	cout<<"************************MENU**********************"<<endl;
-	cout<<"0. "<<endl;
 	cout<<"1. Insertar elemento"<<endl; 
-	cout<<"2. "<<endl;
+    cout<<"2. Mostrar elementos de la lista                  "<<endl;
 	cout<<"3. "<<endl;
 	cout<<"4. "<<endl;
-	cout<<"5. "<<endl;
+	cout<<"5.Salir "<<endl;
 	cout<<"***************************************************"<<endl;
-	cout<<"Digite el numero 10 para salir."<<endl;
+	cout<<"Digite el numero 5 para salir."<<endl;
 	cout<<"Opcion: "<<"#";
 	cin>>opmenu;
 	cout<<"*****************************************"<<endl;
 	
 	switch (opmenu){
-	    case 1:cout<<"|||INSERTOR DE LISTAS|||"<<endl;	
-		cout<<"\nDigite un dato #"<<i+1<<":" ;
-	    cin>>n; 
+	    case 1:cout<<"|||INSERTOR DE LISTAS|||"<<endl;	 
 	    insertarListaA(punta,n);
 	    cout<<"*************************"<<endl;
 	    i++;
 	    system("pause");
 	    system("cls");
 	    break;
-	    
-	    case 2:
-	    	
+	    case 2:MostrarListas(punta);
 	    break;
 	    
 	    case 3: 
@@ -48,7 +44,7 @@ void menu(Nodo*punta){
 	    
 	    break;
 	    
-	    case 10:
+	    case 5:
 	    	
 	    break;
 	    
@@ -56,8 +52,8 @@ void menu(Nodo*punta){
 	
   }while(opmenu !=10);
 };
-struct nodo * crearpunta(){
-struct nodo * punta;
+struct Nodo * crearpunta(){
+struct Nodo * punta;
 punta=NULL;
 return punta;
 }
@@ -66,9 +62,9 @@ int i;
 int nnodos;
 cout<<"Cuantos nodos desea insertar en la lista A ( externa ) :"<<endl;
 cin>>nnodos;
-while(i<=nnodos)
+while(i<nnodos)
 {
-
+cout<<"HOLA"<<endl;
 Nodo *nuevo_nodo=new Nodo();
 Nodo *aux1=punta;
 nuevo_nodo->dato=n;
@@ -85,5 +81,20 @@ else{
 	aux1->liga=nuevo_nodo;
 
 }
+i++;
 }
 }
+////////////////////////////////////////////
+void MostrarListas(Nodo *punta){
+//	Nodo *actual = new Nodo();
+//	actual=punta; //primera posicion de la lista
+	int i=0;
+	while(punta != NULL){ //hasta que sea null va a mostrar las listas
+	cout <<' '<< i+1 <<") " << punta->dato << endl;
+	punta=punta->liga;
+	i++;
+		
+	}
+	system("pause");
+	system("cls");
+};

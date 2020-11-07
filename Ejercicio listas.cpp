@@ -5,7 +5,8 @@ using namespace std;
 
 
 int main(int argc, char** argv) {
-struct nodo *punta=NULL;
+struct Nodo *punta=NULL;
 punta=crearpunta();
+menu(punta);
 	return 0;
 }
