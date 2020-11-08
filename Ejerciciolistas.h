@@ -7,11 +7,11 @@ struct Nodo{ //struct Nodo
 	
 };	
 void insertarListaA(Nodo*&,int);
-void insertarListaB(Nodo*&,int);
+void insertarListaB(Nodo*&,int,int);
 void MostrarListas(Nodo *);
 void menu(Nodo*punta){
 
-	int opmenu,i,p,pos,x,n;
+	int opmenu,i,p,pos,x,n,daton,nnodos2;
 	do{
 	cout<<endl;
 	cout<<"************************MENU**********************"<<endl;
@@ -37,7 +37,11 @@ void menu(Nodo*punta){
 	    case 2:MostrarListas(punta);
 	    break;
 	    case 3: cout<<"|||INSERTOR DE LISTAS|||"<<endl;	 
-	    insertarListaB(punta,n);
+	    cout<<"Cuantos nodos desea insertar en la lista B ( interna ) :"<<endl;
+    	cin>>nnodos2;
+
+	    insertarListaB(punta,n,daton);
+	    
 	    cout<<"*************************"<<endl;
 	    i++;
 	    system("pause");
@@ -100,13 +104,13 @@ void MostrarListas(Nodo *punta){
 	system("cls");
 };
 
-void insertarListaB(Nodo *&punta, int p){
+void insertarListaB(Nodo *&punta, int p,int daton){
 	int i,x,n;
     Nodo *q;
  	Nodo* Nuevo=new Nodo();
 	char opcion;
 	int nnodos2;
-	Nuevo->dato=p;
+	Nuevo->dato=daton;
 	cout<<"Cuantos nodos desea insertar en la lista B ( interna ) :"<<endl;
     cin>>nnodos2;
     while(i<nnodos2)
@@ -114,7 +118,10 @@ void insertarListaB(Nodo *&punta, int p){
 cout<<"HOLA 2"<<endl;
 Nodo *nuevo_nodo=new Nodo();
 Nodo *aux1=punta;
-nuevo_nodo->dato=n;
+cout<<"Que dato desea que tenga la el nodo numero"<<i<<"de la lista B(interna)";
+cin>>daton;
+nuevo_nodo->dato=daton;
+
 
 if(punta==NULL){
 	punta=nuevo_nodo;
@@ -173,18 +180,4 @@ i++;
 		
 		}
 	
-	/*
-	cout<<"Digite el nodo de la lista A en el que desea insertar la lista B (lista interna):"<<endl;
-	cin>>p;
-	Nodo *nuevo_nodo=new Nodo();
-	Nodo *x=punta;
-	x=punta;
-	while(x->liga!=p){
-		x=x->liga;
-x->liga=nuevo_nodo;
-*/
-struct Nodo * crearpunta2(){
-struct Nodo * punta2;
-punta2=NULL;
-return punta2;
-}
+
