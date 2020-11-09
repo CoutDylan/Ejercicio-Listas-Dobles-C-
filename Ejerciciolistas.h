@@ -7,177 +7,261 @@ struct Nodo{ //struct Nodo
 	
 };	
 void insertarListaA(Nodo*&,int);
-void insertarListaB(Nodo*&,int,int);
-void MostrarListas(Nodo *);
-void menu(Nodo*punta){
 
-	int opmenu,i,p,pos,x,n,daton,nnodos2;
+void insertarListaB(Nodo*&,int);
+
+void MostrarListas(Nodo *);
+
+void mostrarLista2(Nodo *);
+
+void juntarListas(Nodo *&, Nodo *&, int, int);
+
+
+
+void menu(Nodo*punta,Nodo *punta2){
+
+	int opmenu,i,p,pos,x,n,daton,nodos2,nnodos;
+	
 	do{
 	cout<<endl;
 	cout<<"************************MENU**********************"<<endl;
 	cout<<"1. Crear Lista A (Paso 1)  "<<endl; 
     cout<<"2. Mostrar elementos de la lista(Paso 2)          "<<endl;
 	cout<<"3. Crear Lista B (Paso 3)  "<<endl;
-	cout<<"4. "<<endl;
-	cout<<"5.Salir "<<endl;
+	cout<<"4. Mostrar elementos de la lista B(Paso 4)"<<endl;
+	cout<<"5. Insertar lista B en lista A: "<<endl;
 	cout<<"***************************************************"<<endl;
-	cout<<"Digite el numero 5 para salir."<<endl;
+	cout<<"Digite el numero 7 para salir."<<endl;
 	cout<<"Opcion: "<<"#";
 	cin>>opmenu;
 	cout<<"*****************************************"<<endl;
 	
 	switch (opmenu){
-	    case 1:cout<<"|||INSERTOR DE LISTAS|||"<<endl;	 
-	    insertarListaA(punta,n);
+		
+	    case 1:cout<<"|||INSERTOR DE LISTAS|||"<<endl;
+		
+		cout<<"Cuantos nodos desea insertar en la lista A ( externa ) :"<<endl;
+		cin>>nnodos;	 
+	    
+	    insertarListaA(punta,nnodos);
+	    
 	    cout<<"*************************"<<endl;
-	    i++;
+	    
 	    system("pause");
+	    
 	    system("cls");
+	    
 	    break;
+	    
 	    case 2:MostrarListas(punta);
+	    
 	    break;
+	    
 	    case 3: cout<<"|||INSERTOR DE LISTAS|||"<<endl;	 
+	    
 	    cout<<"Cuantos nodos desea insertar en la lista B ( interna ) :"<<endl;
-    	cin>>nnodos2;
+	    
+    	cin>>nodos2;
 
-	    insertarListaB(punta,n,daton);
+	    insertarListaB(punta2,nodos2);
 	    
 	    cout<<"*************************"<<endl;
-	    i++;
+	    
 	    system("pause");
+	    
 	    system("cls"); 
+	    
 	    break;   
+	    
 	    case 4: 
-	    break;
-	    case 5:
+	    
+	    mostrarLista2(punta2);
+	    
 	    break;
 	    
+	    case 5:
+	    	
+	    juntarListas(punta,punta2,nnodos,nodos2);
+	    	
+	    break;
+	    
+	    case 6:
+	    	
+	   
+	    break;
 	}
 	
-  }while(opmenu !=5);
+  }while(opmenu !=7);
+  
 };
-struct Nodo * crearpunta(){
-struct Nodo * punta;
-punta=NULL;
-return punta;
-}
+
 
 void insertarListaA(Nodo *&punta, int n){//puntero tipo nodo y por referencia
 int i;
 int nnodos;
-cout<<"Cuantos nodos desea insertar en la lista A ( externa ) :"<<endl;
-cin>>nnodos;
-while(i<nnodos)
-{
-cout<<"HOLA"<<endl;
-Nodo *nuevo_nodo=new Nodo();
-Nodo *aux1=punta;
-nuevo_nodo->dato=n;
 
-if(punta==NULL){
-	punta=nuevo_nodo;
-	
-}
-else{
-	while(aux1->liga!=NULL){
-		aux1=aux1 ->liga;
+
+
+	while(i<nnodos)
+	{
 		
+		cout<<"HOLA"<<endl;
+		
+		Nodo *nuevo_nodo=new Nodo();
+		
+		Nodo *aux1=punta;
+		
+		nuevo_nodo->dato;
+
+	if(punta==NULL){
+	
+		punta=nuevo_nodo;
+	
 	}
+	
+	else{
+		
+		while(aux1->liga!=NULL){
+		
+			aux1=aux1 ->liga;
+		
+		}
+	
 	aux1->liga=nuevo_nodo;
 
-}
+	}
 i++;
 }
 }
 ////////////////////////////////////////////
 void MostrarListas(Nodo *punta){
-//	Nodo *actual = new Nodo();
-//	actual=punta; //primera posicion de la lista
+	Nodo *aux;
+	aux=punta;
 	int i=0;
-	while(punta != NULL){ //hasta que sea null va a mostrar las listas
-	cout <<' '<< i+1 <<") " << punta->dato << endl;
-	punta=punta->liga;
-	i++;	
+	
+	while(aux != NULL){ //hasta que sea null va a mostrar las listas
+	
+		cout <<' '<< i+1 <<") " << aux->dato << endl;
+		
+		aux=aux->liga;
+		
+		i++;	
 	
 	}
 	system("pause");
+	
 	system("cls");
 };
 
-void insertarListaB(Nodo *&punta, int p,int daton){
-	int i,x,n;
-    Nodo *q;
- 	Nodo* Nuevo=new Nodo();
-	char opcion;
-	int nnodos2;
-	Nuevo->dato=daton;
-	cout<<"Cuantos nodos desea insertar en la lista B ( interna ) :"<<endl;
-    cin>>nnodos2;
-    while(i<nnodos2)
-{
-cout<<"HOLA 2"<<endl;
-Nodo *nuevo_nodo=new Nodo();
-Nodo *aux1=punta;
-cout<<"Que dato desea que tenga la el nodo numero"<<i<<"de la lista B(interna)";
-cin>>daton;
-nuevo_nodo->dato=daton;
-
-
-if(punta==NULL){
-	punta=nuevo_nodo;
+void insertarListaB(Nodo *&punta2,int nodos2){
 	
-}
-else{
-	while(aux1->liga!=NULL){
-		aux1=aux1 ->liga;
+	int i=0,dato;
+	Nodo *aux;
+
+	
+		
+	while(i<nodos2){
+		
+		cout<<"Que dato desea ingresar en la posicion "<<i+1<<" de la lista"<<endl;
+		cin>>dato;
+		
+		Nodo *q=new Nodo();
+		
+		q->dato=dato;
+		
+		if(punta2==NULL){
+			
+			punta2=q;
+		}
+		
+		
+			
+		else{
+			
+			aux=punta2;
+				
+			while(aux->liga!=NULL){
+			
+				aux=aux->liga;
+				
+			}
+			
+			aux->liga=q;
+			
+		}
+		
+		i++;
 		
 	}
-	aux1->liga=nuevo_nodo;
 
-}
-i++;
-}
-	if(punta==NULL){
-		cout<<"Lista vacia, desea crear una nueva lista? (S/N): ";
-		cin>>opcion;
-		if (opcion == 'S'){
-			Nuevo->liga=NULL;
-			punta=Nuevo;
-			
-		}
-		}
-		else{
-			q=punta;
-			i=1;
-		}
-		    cout<<"Digite el nodo de la lista A en el que desea insertar la lista B (lista interna):"<<endl;
-			cin>>p;
-			while(q->liga != NULL){
-				
-				if(p==i){
-					Nuevo->liga=q->liga;
-					q->liga=Nuevo;	
-				}
-				else{
-					i++;
-					q=q->liga;
-				}
-				
-				if(q->liga==NULL){
-					cout<<"No existe esta posicion, desea insertarla de ultima (S/N)";
-					cin>>opcion;
-						if (opcion=='S'){
-							Nuevo->liga=NULL;
-							q->liga=Nuevo;
-						}
-				}
-				return;
-				}
-				
-			
-			
-			
+};
+
+void mostrarLista2(Nodo *punta2){
+
+	int i=0;
+	Nodo *aux;
+	aux=punta2;
+	
+	while(aux != NULL){ 
+	
+		cout <<' '<< i+1 <<") " << aux->dato << endl;
 		
-		}
+		aux=aux->liga;
+		
+		i++;	
+	
+	}
+
+};
+
+void juntarListas(Nodo *&punta,Nodo *&punta2,int nodos1,int nodos2){
+	
+	int p,i=0,j=0;
+	Nodo *aux1LA;
+	Nodo *aux2LA;
+	Nodo *aux1LB;
+	aux1LA=punta;
+	aux2LA=punta;
+	aux1LB=punta2;
+	cout<<"En que posicion de A desea insertar la lista B:"<<endl;
+	cin>>p;
+
+	while (i<p){
+		
+		aux1LA=aux1LA->liga;
+		
+		i++;
+		
+	}
+	
+	while(j<p+1){
+		
+		aux2LA=aux2LA->liga;
+		
+		j++;
+	}
+
+
+
+	while(i<=nodos2 && aux1LB->liga!=NULL ){
+	
+	Nodo *x=new Nodo();
+			
+			x->dato=aux1LB->dato;
+			
+			aux1LB=aux1LB->liga;
+			
+
+		aux1LA->liga=x;
+		
+		x->liga=aux2LA;
+		
+		i++;
+	}
+};
+
+
+
+
 	
 

@@ -5,7 +5,7 @@ using namespace std;
 //ANALISIS Y CORRECCION  DIFERENTE
 int main(int argc, char** argv) {
 struct Nodo *punta=NULL;
-punta=crearpunta();
-menu(punta);
+struct Nodo *punta2=NULL;
+menu(punta,punta2);
 	return 0;
 }
