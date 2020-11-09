@@ -14,6 +14,8 @@ void MostrarListas(Nodo *);
 
 void mostrarLista2(Nodo *);
 
+void mostrarListasjuntas(Nodo *&);
+
 void juntarListas(Nodo *&, Nodo *&, int, int);
 
 
@@ -30,6 +32,7 @@ void menu(Nodo*punta,Nodo *punta2){
 	cout<<"3. Crear Lista B (Paso 3)  "<<endl;
 	cout<<"4. Mostrar elementos de la lista B(Paso 4)"<<endl;
 	cout<<"5. Insertar lista B en lista A: "<<endl;
+	cout<<"6. Mostrar listas juntas"<<endl;
 	cout<<"***************************************************"<<endl;
 	cout<<"Digite el numero 7 para salir."<<endl;
 	cout<<"Opcion: "<<"#";
@@ -87,7 +90,8 @@ void menu(Nodo*punta,Nodo *punta2){
 	    
 	    case 6:
 	    	
-	   
+	    mostrarListasjuntas(punta);
+	    	
 	    break;
 	}
 	
@@ -259,6 +263,24 @@ void juntarListas(Nodo *&punta,Nodo *&punta2,int nodos1,int nodos2){
 		i++;
 	}
 };
+
+void mostrarListasjuntas(Nodo *&punta){
+	int i=0;
+	Nodo *aux;
+	aux=punta;
+	
+	while(aux != NULL){ 
+	
+		cout <<' '<< i+1 <<") " << aux->dato << endl;
+		
+		aux=aux->liga;
+		
+		i++;	
+	
+	}
+
+};
+
 
 
 
