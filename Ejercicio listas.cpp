@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Ejerciciolistas.h"
-//Prueba #1
+
 using namespace std;
-//ANALISIS Y CORRECCION  DIFERENTE
-int main(int argc, char** argv) {
-struct Nodo *punta=NULL;
-struct Nodo *punta2=NULL;
-menu(punta,punta2);
+
+int main() 
+{
+	struct Nodo *punta=NULL;
+	struct Nodo *punta2=NULL;
+	menu(punta,punta2);
 	return 0;
 }
